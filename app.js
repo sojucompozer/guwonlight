@@ -199,7 +199,11 @@
 
     for (let i = 0; i < landmarksList.length; i += 1) {
       const landmarks = landmarksList[i];
-      const handedness = handednessList[i]?.label || "Unknown";
+      const handednessEntry = handednessList[i];
+      const handedness =
+        handednessEntry?.label ||
+        handednessEntry?.classification?.[0]?.label ||
+        "Unknown";
 
       drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS, {
         color: "rgba(236, 244, 255, 0.7)",
@@ -212,11 +216,11 @@
         radius: 1.2
       });
 
-      if (handedness === "Right") {
+      if (handedness === "Left") {
         sawRightHand = true;
         const gesture = classifyGesture(landmarks);
         emitStableGesture(gesture);
-      } else if (handedness === "Left") {
+      } else if (handedness === "Right") {
         const indexTip = landmarks[8];
         if (indexTip) {
           setXYNode(indexTip.x, indexTip.y);
@@ -245,7 +249,7 @@
     hands.setOptions({
       maxNumHands: 2,
       modelComplexity: 1,
-      selfieMode: true,
+      selfieMode: false,
       minDetectionConfidence: 0.65,
       minTrackingConfidence: 0.65
     });
