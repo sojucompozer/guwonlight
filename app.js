@@ -115,10 +115,6 @@
     state.filter.frequency.rampTo(hz, 0.05);
   }
 
-  function mapHandXToPadX(x) {
-    return 1 - x;
-  }
-
   function getFingerStatesByDistance(landmarks) {
     const wrist = landmarks[0];
     const palmRef = distance(landmarks[0], landmarks[9]) || 0.12;
@@ -223,9 +219,8 @@
       } else if (handedness === "Left") {
         const indexTip = landmarks[8];
         if (indexTip) {
-          const mappedX = mapHandXToPadX(indexTip.x);
-          setXYNode(mappedX, indexTip.y);
-          mapLeftHandToFx(mappedX, indexTip.y);
+          setXYNode(indexTip.x, indexTip.y);
+          mapLeftHandToFx(indexTip.x, indexTip.y);
         }
       }
     }
