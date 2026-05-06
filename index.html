@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>빛빛빛 | 구원의 포화</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="enter-overlay" id="enterOverlay">
+      <button class="enter-button" id="enterButton" type="button">[ CLICK TO ENTER ]</button>
+    </div>
+
+    <div class="noise-layer" aria-hidden="true"></div>
+    <div class="grid-layer" aria-hidden="true"></div>
+
+    <main class="scene">
+      <section class="sequencer" aria-label="Gesture Sequencer">
+        <header class="panel-header">
+          <p class="panel-title">GESTURE SEQUENCER</p>
+        </header>
+
+        <div class="track-list">
+          <article class="track-row" data-track="vocal">
+            <div class="track-meta">
+              <p class="track-name">VOCAL</p>
+              <p class="track-gesture">Paper</p>
+            </div>
+            <div class="clip-lane" aria-hidden="true">
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+            </div>
+          </article>
+
+          <article class="track-row" data-track="drum">
+            <div class="track-meta">
+              <p class="track-name">DRUM</p>
+              <p class="track-gesture">Fist</p>
+            </div>
+            <div class="clip-lane" aria-hidden="true">
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+            </div>
+          </article>
+
+          <article class="track-row" data-track="bass">
+            <div class="track-meta">
+              <p class="track-name">BASS</p>
+              <p class="track-gesture">Index</p>
+            </div>
+            <div class="clip-lane" aria-hidden="true">
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+            </div>
+          </article>
+
+          <article class="track-row" data-track="synth">
+            <div class="track-meta">
+              <p class="track-name">SYNTH</p>
+              <p class="track-gesture">Peace</p>
+            </div>
+            <div class="clip-lane" aria-hidden="true">
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+            </div>
+          </article>
+
+          <article class="track-row" data-track="guitar">
+            <div class="track-meta">
+              <p class="track-name">GUITAR</p>
+              <p class="track-gesture">Three</p>
+            </div>
+            <div class="clip-lane" aria-hidden="true">
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot active"></div>
+              <div class="clip-slot"></div>
+              <div class="clip-slot"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <aside class="right-column">
+        <section class="xy-pad-panel" aria-label="Long Tail Reverb XY Pad">
+          <header class="panel-header">
+            <p class="panel-title">LONG-TAIL REVERB</p>
+          </header>
+          <div class="xy-pad">
+            <div class="xy-grid" aria-hidden="true"></div>
+            <div class="xy-rings" aria-hidden="true"></div>
+            <div class="xy-node" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <section class="webcam-panel" aria-label="Webcam Preview">
+          <header class="panel-header">
+            <p class="panel-title">CAM INPUT</p>
+          </header>
+          <div class="webcam-frame">
+            <video class="webcam-video" autoplay playsinline muted></video>
+            <canvas class="webcam-canvas" aria-hidden="true"></canvas>
+            <p class="gesture-readout">CURRENT GESTURE: <span class="gesture-value">NONE</span></p>
+            <p class="webcam-placeholder">WEBCAM // STANDBY</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer-info">
+      <p>PRE-SAVE // 구원의 포화 - 2026.05.18</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.8.49/build/Tone.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
